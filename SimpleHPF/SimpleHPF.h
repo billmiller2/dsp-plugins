@@ -96,8 +96,14 @@ public:
 	virtual bool __stdcall processAuxInputBus(audioProcessData* pAudioProcessData);
 
 	// Add your code here: ----------------------------------------------------------- //
+	float m_f_a0_left; // coefficients
+	float m_f_a1_left;
 
+	float m_f_a0_right;
+	float m_f_a1_right;
 
+	float m_f_z1_left; // delay elements
+	float m_f_z1_right;
 
 	// END OF USER CODE -------------------------------------------------------------- //
 

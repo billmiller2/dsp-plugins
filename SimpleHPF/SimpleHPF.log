@@ -1,0 +1,32 @@
+﻿Build started 9/17/2016 6:22:34 PM.
+     1>Project "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _CRT_SECURE_NO_WARNINGS /D WIN32 /D _WINDLL /D _WINDOWS /D WINDOWS=1 /D DEVELOPMENT=1 /D _WINDLL /D _MBCS /Gm /EHsc /RTC1 /MTd /GS /fp:fast /Zc:wchar_t /Zc:forScope /Fo"C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\\" /Fd"C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt RackAFXDLL.cpp SimpleHPF.cpp
+         SimpleHPF.cpp
+         Generating Code...
+         Skipping... (no relevant changes detected)
+         RackAFXDLL.cpp
+       ResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /l"0x0409" /nologo /fo"C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.res" SimpleHPF.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.dll" /NOLOGO Sock2VST3d_vc10.lib base_vc10d.lib .\resources\Sock2VST3.res kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /DEF:"vst3plug.def" /MANIFEST /ManifestFile:"C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.dll.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.lib" /MACHINE:X86 /SAFESEH:NO /DLL "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.res"
+         "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\plugin.obj"
+         "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\pluginobjects.obj"
+         "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\RackAFXDLL.obj"
+         "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.obj"
+            Creating library C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.lib and object C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.exp
+         SimpleHPF.vcxproj -> C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.dll
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.dll;#2" /manifest "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.dll.intermediate.manifest"
+       CopyFilesToOutputDirectory:
+         Copying file from "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.pdb" to "C:\Users\Bill Miller\AppData\Roaming\RackAFX\PlugIns\SimpleHPF.pdb".
+       FinalizeBuildStatus:
+         Deleting file "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.unsuccessfulbuild".
+         Touching "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.lastbuildstate".
+     1>Done Building Project "C:\Users\Bill Miller\AppData\Roaming\RackAFX\RackAFXProjects\SimpleHPF\SimpleHPF.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.12

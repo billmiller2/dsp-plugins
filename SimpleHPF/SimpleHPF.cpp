@@ -46,9 +46,15 @@ CSimpleHPF::CSimpleHPF()
 	// m_bWantVSTBuffers = true;
 
 	// Finish initializations here
+	m_f_a1_left = m_fSlider_a1; // a1 coefficients correspond to slider value
+	m_f_a1_right = m_fSlider_a1;
 
+	m_f_a0_left = m_f_a1_left - 1.0; // a0 coefficients are calculated by a1 minus one
+	m_f_a0_right = m_f_a1_right - 1.0;
+
+	m_f_z1_left = 0.0; // delay elements are initially zero
+	m_f_z1_right = 0.0;
 }
-
 
 /* destructor()
 	Destroy variables allocated in the contructor()
@@ -94,12 +100,11 @@ bool __stdcall CSimpleHPF::initialize()
 bool __stdcall CSimpleHPF::prepareForPlay()
 {
 	// Add your code here:
-
-
+	m_f_z1_left = 0.0; // reset delay index with each play
+	m_f_z1_right = 0.0;
 
 	return true;
 }
-
 
 /* processAudioFrame
 
@@ -118,20 +123,28 @@ bool __stdcall CSimpleHPF::processAudioFrame(float* pInputBuffer, float* pOutput
 	//
 	// Do LEFT (MONO) Channel; there is always at least one input/one output
 	// (INSERT Effect)
-	pOutputBuffer[0] = pInputBuffer[0];
+	float xn = pInputBuffer[0]; // input sample is x(n)
+	float xn_1 = m_f_z1_left; // delay sample is x(n-1)
+	float yn = m_f_a0_left*xn + m_f_a1_left*xn_1; // difference equation; output y(n) = a0*x(n) + a1*x(n-1)
+
+	m_f_z1_left = xn; // write delay with current x(n)
+	pOutputBuffer[0] = yn; // output sample is y(n)
 
 	// Mono-In, Stereo-Out (AUX Effect)
 	if(uNumInputChannels == 1 && uNumOutputChannels == 2)
-		pOutputBuffer[1] = pInputBuffer[0];
+		pOutputBuffer[1] = yn; // output is y(n)
 
 	// Stereo-In, Stereo-Out (INSERT Effect)
-	if(uNumInputChannels == 2 && uNumOutputChannels == 2)
-		pOutputBuffer[1] = pInputBuffer[1];
+	if(uNumInputChannels == 2 && uNumOutputChannels == 2) { // handle right channel
+		float xn = pInputBuffer[1]; // input sample is x(n)
+		float xn_1 = m_f_z1_right; // delay sample is x(n-1)
+		float yn = m_f_a0_right*xn + m_f_a1_right*xn_1; // difference equation; output y(n) = a0*x(n) + a1*x(n-1)
 
-
+		m_f_z1_right = xn; // write delay with current x(n)
+		pOutputBuffer[1] = yn; // output sample is y(n) 
+	}
 	return true;
 }
-
 
 /* ADDED BY RACKAFX -- DO NOT EDIT THIS CODE!!! ----------------------------------- //
    	**--0x2983--**
@@ -167,6 +180,11 @@ bool __stdcall CSimpleHPF::userInterfaceChange(int nControlIndex)
 	{
 		case 0:
 		{
+			m_f_a1_left = m_fSlider_a1; // save a1
+			m_f_a1_right = m_fSlider_a1;
+
+			m_f_a0_left = m_f_a1_left - 1.0; // calculate a0 
+	        m_f_a0_right = m_f_a1_right - 1.0;
 			break;
 		}
 
